@@ -164,7 +164,7 @@ def query_handler(call):
 
 @bot.message_handler(content_types=['text'])
 def send_text(message):
-   try:
+  try:
     if message.text == '🆔 Account':
         data = json.load(open('users.json', 'r'))
         accmsg = '*👮 User : {}\n\n⚙️ Wallet : *`{}`*\n\n💸 Balance : *`{}`* {}*'
@@ -261,7 +261,7 @@ def send_text(message):
             bot.send_message(
                 user_id, f"_❌Your balance low you should have at least {Mini_Withdraw} {TOKEN} to Withdraw_", parse_mode="Markdown")
             return
-   except:
+  except:
         bot.send_message(message.chat.id, "This command having error pls wait for ficing the glitch by admin")
         bot.send_message(OWNER_ID, "Your bot got an error fix it fast!\n Error on command: "+message.text)
         return
