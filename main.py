@@ -4,14 +4,14 @@ import telebot
 
 ##TOKEN DETAILS
 TOKEN = "Netflix Cookies"
-BOT_TOKEN = "7178545425:AAEiglxEGFiXMSVxQGsoe-T5RWKUbhz046w"
-PAYMENT_CHANNEL = "@cookwithd" #add payment channel here including the '@' sign
-OWNER_ID = 5577450357 #write owner's user id here
-CHANNELS = ["@dailynetflixcookiesfree"] #add channels to be checked here in the format - ["Channel 1", "Channel 2"]
+BOT_TOKEN = "7178545425:AAEiglxEGFiXMSVxQGsoe-T5RWKUbhz046w" # Replace with your actual bot token
+PAYMENT_CHANNEL = "@your_payment_channel" # add payment channel here including the '@' sign
+OWNER_ID = 123456789 # write owner's user id here
+CHANNELS = ["@your_channel"] # add channels to be checked here in the format - ["Channel 1", "Channel 2"]
 Points_Per_Refer = 1 # Points per refer
 Required_Referals_For_Withdraw = 3 # Required referals to withdraw
 
-bot = telebot.TeleBot(7178545425:AAEiglxEGFiXMSVxQGsoe-T5RWKUbhz046w)
+bot = telebot.TeleBot(BOT_TOKEN)
 
 def check_user_joined(id):
     for channel in CHANNELS:
@@ -79,7 +79,7 @@ def send_text(message):
         if data['points'][user] >= Required_Referals_For_Withdraw:
             data['points'][user] -= Required_Referals_For_Withdraw
             json.dump(data, open('users.json', 'w'))
-            bot.send_message(message.chat.id, "Your withdraw request has been sent. Cookies will be Sent 7AM - 10PM (IST)")
+            bot.send_message(message.chat.id, "Your withdraw request has been sent.")
             bot.send_message(PAYMENT_CHANNEL, f"User @{message.from_user.username} ({message.chat.id}) has requested a withdrawal. Points: {Required_Referals_For_Withdraw}")
         else:
             bot.send_message(message.chat.id, f"You need {Required_Referals_For_Withdraw} points to withdraw.")
