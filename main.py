@@ -11,7 +11,7 @@ CHANNELS = ["@dailynetflixcookiesfree"] #add channels to be checked here in the 
 Points_Per_Refer = 1 # Points per refer
 Required_Referals_For_Withdraw = 3 # Required referals to withdraw
 
-bot = telebot.TeleBot(BOT_TOKEN)
+bot = telebot.TeleBot(7178545425:AAEiglxEGFiXMSVxQGsoe-T5RWKUbhz046w)
 
 def check_user_joined(id):
     for channel in CHANNELS:
